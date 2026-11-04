@@ -294,6 +294,14 @@ button,input,select,textarea{font-family:Outfit,system-ui,sans-serif}
 .sim iframe{width:1px!important;min-width:100%!important;max-width:100%!important}
 @media(max-width:980px){.grid3>*,.grid2>*{grid-column:auto!important}.grid3,.grid2,.anim,.explorer,.panel.on{grid-template-columns:minmax(0,1fr)!important}}
 @media(max-width:560px){.top .brand{min-width:0;flex:1 1 auto}.top .brand .mlg{width:112px!important;height:46px!important}.top .brand .mlg img{width:128px!important;left:-8px!important;top:-42px!important}.top .brand .mtt{min-width:0;font-size:12.5px!important;white-space:normal;line-height:1.2}.top{height:auto!important;min-height:58px}.hero.hx{padding-top:calc(58px + 24px)!important}}
+.mguide{background:#04302B;color:#fff;border-radius:18px;padding:16px 18px;margin:0 0 14px;display:grid;gap:12px}
+.mg-k{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#3CC168}
+.mg-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px}
+.mg-g>div{background:rgba(255,255,255,.07);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;font-size:14px;line-height:1.5;color:#D7E7E1}
+.mg-g b{color:#fff}
+.mg-g i{width:26px;height:26px;border-radius:50%;background:#3CC168;color:#04302B;display:grid;place-items:center;font:800 13px Outfit,sans-serif;font-style:normal}
+@media(max-width:980px){.tablist{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible!important;gap:6px!important}.tablist .tab{white-space:normal!important;min-width:0;width:auto!important;text-align:left;line-height:1.2}}
+@media(max-width:560px){.duo{grid-template-columns:minmax(0,1fr)!important}.duo>*{min-width:0}}
 </style>
 </head>
 <body>
@@ -879,6 +887,15 @@ button,input,select,textarea{font-family:Outfit,system-ui,sans-serif}
     <div class="box"><div class="k">Tendinitis bicipital</div><b>Porción larga del bíceps</b><small>Dolor en la corredera bicipital</small></div>
     <div class="box y"><div class="k">Bursitis subacromial</div><b>Bursa subacromial-subdeltoidea</b><small>Dolor subacromial</small></div>
   </div>
+  <div class="mguide reveal">
+    <div class="mg-k">CÓMO USAR EL SIMULADOR</div>
+    <div class="mg-g">
+      <div><i>1</i><span><b>Elige la maniobra</b> en la lista junto al modelo (a la izquierda en computador; arriba en el celular). Están agrupadas: manguito rotador, tendinitis bicipital y bursitis subacromial.</span></div>
+      <div><i>2</i><span><b>Elige el resultado</b> arriba a la derecha del modelo: <b>Negativa</b>, <b>Positiva: dolor</b> o <b>Positiva: debilidad</b>.</span></div>
+      <div><i>3</i><span><b>Sigue la animación por fases:</b> fase 1, el paciente solo; fase 2, con el examinador. Abajo ves el paso (por ejemplo, 7/8). Flechas: <b style="color:#2563eb">azul</b> fuerza del examinador, <b style="color:#16a34a">verde</b> esfuerzo del paciente, <b style="color:#dc2626">rojo</b> dolor.</span></div>
+      <div><i>4</i><span><b>Gira la vista:</b> arrastra sobre el modelo; doble clic para restablecerla. Usa <b>Pantalla completa</b> para verlo más grande. Debajo del modelo está la ficha de la maniobra.</span></div>
+    </div>
+  </div>
   <div class="card sim reveal" data-sim="maniobras">
     <div class="sim-bar"><span class="dot"></span><b>Simulador de exploración física del hombro</b><div class="sp"><button class="mini" data-fs>⤢ Pantalla completa</button></div></div>
     <iframe title="Simulador maniobras del hombro"></iframe>
@@ -1024,10 +1041,10 @@ $$('.exam .step-card').forEach(c=>c.addEventListener('click',()=>{$$('.exam .ste
 
 /* ---------- simuladores embebidos ---------- */
 const OVR={
-  kocher:'<style>header{display:none!important}.stage{height:600px!important}.dstage{height:430px!important}body{overflow-x:hidden}footer{display:none}</style>',
+  kocher:'<style>header{display:none!important}.stage{height:600px!important}@media(max-width:860px){.stage{height:min(560px,78vh)!important}}.dstage{height:430px!important}body{overflow-x:hidden}footer{display:none}</style>',
   maniobras:'<style>header{display:none!important}.app{padding-top:16px!important;max-width:none!important}svg#stage{max-height:560px!important}body{background:#f6faf8!important}</style>'
 };
-const MOB='<meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{max-width:100%!important;overflow-x:hidden!important}.app{grid-template-columns:minmax(0,1fr)!important}.app>*,main,aside,section,article{min-width:0!important}img,svg,canvas,video{max-width:100%}.hud{max-width:calc(100% - 16px)!important;box-sizing:border-box;flex-wrap:wrap}.pill{white-space:normal!important;max-width:100%}.row{flex-wrap:wrap!important}div.steps{grid-template-columns:repeat(5,minmax(0,1fr))!important}.step{min-width:0;overflow-wrap:anywhere}@media(max-width:480px){div.steps{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media(max-width:700px){.steps,.stepbar,.timeline,.chips{flex-wrap:wrap!important}}</style>';
+const MOB='<meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{max-width:100%!important;overflow-x:hidden!important}.app{grid-template-columns:270px minmax(0,1fr)!important}.app>*,main,aside,section,article{min-width:0!important}@media(max-width:860px){.app{grid-template-columns:minmax(0,1fr)!important;padding:12px 10px 16px!important;gap:10px!important}aside{position:static!important;padding:10px!important}.grp{margin-bottom:6px!important}.grp+.grp{padding-top:8px!important}.grp h3{margin:2px 4px 6px!important}.grp{display:flex;flex-wrap:wrap;gap:6px}.grp h3{flex:0 0 100%}.mbtn{width:auto!important;display:inline-block!important;border:1px solid #e2e8f0!important;background:#fff!important;padding:7px 11px!important;border-radius:999px!important}.mbtn span{display:none!important}.mbtn b{font-size:13px!important}.mbtn.on{background:var(--gs)!important;border-color:var(--gc)!important}}@media(max-width:860px){.stage-wrap{display:flex!important;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 12px 0}.status,.phasechip{order:1;position:static!important;margin:0!important;font-size:12px!important;padding:5px 9px!important;box-shadow:none!important}.phasechip.ph-n{display:none!important}svg#stage{order:2;flex:0 0 calc(100% + 24px);width:calc(100% + 24px)!important;max-height:none!important;min-height:320px;margin:0 -12px}.caption{order:3;position:static!important;flex:0 0 calc(100% + 24px);background:#fff!important;border-top:1px solid #e2e8f0;margin:0 -12px;padding:10px 14px!important;min-height:0!important;font-size:14px!important;line-height:1.45}.hint{display:none!important}.legend{display:none!important}}img,svg,canvas,video{max-width:100%}.hud{max-width:calc(100% - 16px)!important;box-sizing:border-box;flex-wrap:wrap}.pill{white-space:normal!important;max-width:100%}.row{flex-wrap:wrap!important}div.steps{grid-template-columns:repeat(5,minmax(0,1fr))!important}.step{min-width:0;overflow-wrap:anywhere}@media(max-width:480px){div.steps{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media(max-width:860px){svg#stage{height:420px!important;min-height:0!important}.mbar{display:flex;flex-direction:column;gap:8px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08)}.mbar .hud,.mbar .views{position:static!important;max-width:none!important;justify-content:flex-start!important}.mbar .pill{width:auto!important;white-space:normal!important}.mbar .vb{font-size:12.5px!important;padding:6px 10px!important}.lbl{font-size:11px!important;padding:1px 5px!important}}</style><script>document.addEventListener("DOMContentLoaded",function(){if(innerWidth>=860)return;var s=document.getElementById("stage");if(!s)return;if(s.tagName.toLowerCase()==="svg"){s.setAttribute("preserveAspectRatio","xMidYMid slice");return;}var h=s.querySelector(".hud"),v=s.querySelector(".views");if(!h&&!v)return;var b=document.createElement("div");b.className="mbar";if(h)b.appendChild(h);if(v)b.appendChild(v);s.parentNode.insertBefore(b,s);});<\/script><style>@media(max-width:700px){.steps,.stepbar,.timeline,.chips{flex-wrap:wrap!important}}</style>';
 function prep(html,k){return html.replace('</head>',OVR[k]+MOB+'</head>');}
 const frames={};
 function fit(fr){try{const d=fr.contentDocument;if(!d||!d.body)return;const h=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);if(h&&Math.abs(fr.offsetHeight-h)>2)fr.style.height=h+'px';}catch(e){}}
