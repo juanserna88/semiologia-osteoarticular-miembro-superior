@@ -291,6 +291,9 @@ button,input,select,textarea{font-family:Outfit,system-ui,sans-serif}
 .hx-i small{display:block;font-size:13px;color:#b9d6cd;line-height:1.35;margin-top:2px}
 .hx-i em{font-style:normal;color:#b9d6cd}
 @media(max-width:860px){.hx-in{grid-template-columns:minmax(0,1fr);gap:24px}.hero.hx{padding:calc(66px + 28px) 16px 36px!important}}
+.sim iframe{width:1px!important;min-width:100%!important;max-width:100%!important}
+@media(max-width:980px){.grid3>*,.grid2>*{grid-column:auto!important}.grid3,.grid2,.anim,.explorer,.panel.on{grid-template-columns:minmax(0,1fr)!important}}
+@media(max-width:560px){.top .brand{min-width:0;flex:1 1 auto}.top .brand .mlg{width:112px!important;height:46px!important}.top .brand .mlg img{width:128px!important;left:-8px!important;top:-42px!important}.top .brand .mtt{min-width:0;font-size:12.5px!important;white-space:normal;line-height:1.2}.top{height:auto!important;min-height:58px}.hero.hx{padding-top:calc(58px + 24px)!important}}
 </style>
 </head>
 <body>
@@ -1024,7 +1027,8 @@ const OVR={
   kocher:'<style>header{display:none!important}.stage{height:600px!important}.dstage{height:430px!important}body{overflow-x:hidden}footer{display:none}</style>',
   maniobras:'<style>header{display:none!important}.app{padding-top:16px!important;max-width:none!important}svg#stage{max-height:560px!important}body{background:#f6faf8!important}</style>'
 };
-function prep(html,k){return html.replace('</head>',OVR[k]+'</head>');}
+const MOB='<meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{max-width:100%!important;overflow-x:hidden!important}.app{grid-template-columns:minmax(0,1fr)!important}.app>*,main,aside,section,article{min-width:0!important}img,svg,canvas,video{max-width:100%}.hud{max-width:calc(100% - 16px)!important;box-sizing:border-box;flex-wrap:wrap}.pill{white-space:normal!important;max-width:100%}.row{flex-wrap:wrap!important}div.steps{grid-template-columns:repeat(5,minmax(0,1fr))!important}.step{min-width:0;overflow-wrap:anywhere}@media(max-width:480px){div.steps{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media(max-width:700px){.steps,.stepbar,.timeline,.chips{flex-wrap:wrap!important}}</style>';
+function prep(html,k){return html.replace('</head>',OVR[k]+MOB+'</head>');}
 const frames={};
 function fit(fr){try{const d=fr.contentDocument;if(!d||!d.body)return;const h=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);if(h&&Math.abs(fr.offsetHeight-h)>2)fr.style.height=h+'px';}catch(e){}}
 function loadSim(card){
